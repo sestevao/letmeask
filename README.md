@@ -1,8 +1,8 @@
-<p align="center">
+<div align="center">
   <img alt="Letmeask" src=".github/logo.svg" width="160px">
   <pre>💭 Are you a content creator? Then `Letmeask` is perfect for you! 
   You can create Q&A rooms with the audience that follows you. 💭</pre>
-</p>
+</div>
 
 ## 💻 About the Project
 

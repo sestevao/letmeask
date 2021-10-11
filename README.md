@@ -66,6 +66,6 @@ Remembering that you need to have a [Figma](http://figma.com/) account to access
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE.md) file for details.
 
----
+<hr>
 
 <p align="center" style="font-size: 10pt">made with 💜 by sestevao</p>

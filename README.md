@@ -56,4 +56,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE.md) fi
 
 <hr>
 
-<sub align="center"><sup>made with 💜 by sestevao</sup></sub>
+<p align="center">made with 💜 by sestevao</p>

@@ -10,7 +10,7 @@
 
 **Demo**: https://
 
-Application built on the React Native track from Next Level Week NLW#05 from @rocketseat during April 19-25, 2021.
+Application built on the React JS track from Next Level Week NLW#05 from @rocketseat during April 19-25, 2021.
 
 <div align="center"><img alt="Letmeask" title="Letmeask" src=".github/Letmeask.png" /></div>
 

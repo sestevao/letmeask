@@ -1,7 +1,6 @@
 <div align="center">
   <img alt="Letmeask" src=".github/logo.svg" width="160px">
-  <pre>💭 Are you a content creator? Then `Letmeask` is perfect for you! 
-  You can create Q&A rooms with the audience that follows you. 💭</pre>
+  <pre>💭 Are you a content creator? Then <b>Letmeask</b> is perfect for you! You can create Q&A rooms with the audience that follows you. 💭</pre>
 </div>
 
 ## 💻 About the Project
@@ -76,16 +75,16 @@ You can view the project layout through this [link](https://www.figma.com/file/u
 
 ## Additional functionalities
 
-- Dark theme
-- Page not found/Not Found
-- Route to display all rooms
-- Count of total questions, likes and answered questions
-- Direct/redirect to admin route after creating room
-- Create a Toast component from scratch to use at different times
-- Display a closed room, but without allowing the creation of questions and like
-- Allow user to log out from the admin page and when viewing an open room
-- Allowing to order questions by the amount of likes on the room page
-- And other small improvements
+- [ ] Dark theme
+- [ ] Page not found/Not Found
+- [ ] Route to display all rooms
+- [ ] Count of total questions, likes and answered questions
+- [ ] Direct/redirect to admin route after creating room
+- [ ] Create a Toast component from scratch to use at different times
+- [ ] Display a closed room, but without allowing the creation of questions and like
+- [ ] Allow user to log out from the admin page and when viewing an open room
+- [ ] Allowing to order questions by the amount of likes on the room page
+- [ ] And other small improvements
 
 ## 📝 License
 

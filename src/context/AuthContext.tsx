@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useEffect, useState } from 'react';
+
 import { auth, firebase } from '../services/firebase';
 
 type User = {
@@ -27,13 +28,13 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
         const { displayName, photoURL, uid } = user;
 
         if (!displayName || !photoURL) {
-          throw new Error("Missing information from Google Account.");
+          throw new Error('Missing information from Google Account.');
         }
 
         setUser({
           id: uid,
-          name: displayName || 'Unnamed',
-          avatar: photoURL || 'https://www.gravatar.com/avatar/0?d=mp&f=y'
+          name: displayName /* || 'Unnamed' */,
+          avatar: photoURL /* || 'https://www.gravatar.com/avatar/0?d=mp&f=y' */,
         });
       }
     })
@@ -45,22 +46,22 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
 
   async function signInWithGoogle() {
     const provider = new firebase.auth.GoogleAuthProvider();
-
     const result = await auth.signInWithPopup(provider);
 
     if (result.user) {
       const { displayName, photoURL, uid } = result.user;
 
       if (!displayName || !photoURL) {
-        throw new Error("Missing information from Google Account.");
+        throw new Error('Missing information from Google Account.');
       }
 
       setUser({
         id: uid,
-        name: displayName || 'Unnamed',
-        avatar: photoURL || 'https://www.gravatar.com/avatar/0?d=mp&f=y'
+        name: displayName /* || 'Unnamed' */,
+        avatar: photoURL /* || 'https://www.gravatar.com/avatar/0?d=mp&f=y' */
       });
     }
+
   }
 
   return (

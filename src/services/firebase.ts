@@ -2,7 +2,6 @@ import firebase from "firebase/compat/app";
 
 import "firebase/compat/auth";
 
-
 import "firebase/compat/database";
 
 const firebaseConfig = {
@@ -15,7 +14,17 @@ const firebaseConfig = {
   appId: process.env.REACT_APP_APP_ID,
 };
 
-firebase.initializeApp(firebaseConfig);
+export function getFirebaseConfig() {
+  if (!firebaseConfig || !firebaseConfig.apiKey) {
+    throw new Error(
+      "No Firebase configuration object provided. Add your web app's configuration object to firebase.ts"
+    );
+  } else {
+    return firebaseConfig;
+  }
+}
+
+firebase.initializeApp(getFirebaseConfig());
 
 const auth = firebase.auth();
 const database = firebase.database();

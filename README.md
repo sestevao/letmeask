@@ -1,6 +1,6 @@
 <div align="center">
   <img alt="Letmeask" src=".github/logo.svg" width="160px">
-  <pre>💭 Are you a content creator? Then <b>Letmeask</b> is perfect for you! You can create Q&A rooms with the audience that follows you. 💭</pre>
+  <pre>💭 Are you a content creator? Then <b>Letmeask</b> is perfect for you! <br>You can create Q&A rooms with the audience that follows you. 💭</pre>
 </div>
 
 ## 💻 About the Project
@@ -15,13 +15,13 @@ Application built on the React JS track from Next Level Week NLW#06 from @rocket
 
 ## 🛠️ Features
 
-- [x] As a participant
+- [x] As a participant:
   - [x] Login with your Google account
   - [x] Create a new room
   - [x] Ask questions and submit
   - [x] Like the questions
   - [x] Button to copy room code
-- [x] As room administrator
+- [x] As room administrator:
   - [x] Can delete question
   - [x] You can close the room
   - [x] Answer the questions
@@ -54,7 +54,7 @@ $ yarn start
 
 The app will be available for access on your browser at http://localhost:3000
 
-## 📁 Config .ENV
+#### 📁 Config .ENV
 
 added .env.example in the project, remember to add the environment variables as per the example
 

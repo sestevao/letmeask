@@ -80,7 +80,7 @@ You can view the project layout through this [link](https://www.figma.com/file/u
 - [ ] Route to display all rooms
 - [ ] Count of total questions, likes and answered questions
 - [ ] Direct/redirect to admin route after creating room
-- [ ] Create a Toast component from scratch to use at different times
+- [x] Create a Toast component from scratch to use at different times
 - [ ] Display a closed room, but without allowing the creation of questions and like
 - [ ] Allow user to log out from the admin page and when viewing an open room
 - [ ] Allowing to order questions by the amount of likes on the room page

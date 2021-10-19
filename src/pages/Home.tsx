@@ -1,5 +1,6 @@
 import { useState, FormEvent } from 'react';
 import { useHistory } from 'react-router-dom';
+import toast from "react-hot-toast";
 
 import '../styles/auth.scss';
 
@@ -10,7 +11,7 @@ import googleIconImg from '../assets/images/google-icon.svg';
 import { Button } from '../components/Button';
 
 import { useAuth } from '../hooks/useAuth';
-import { database } from '../services/firebase'; 
+import { database } from '../services/firebase';
 
 export function Home() {
   const history = useHistory();
@@ -22,6 +23,14 @@ export function Home() {
       await signInWithGoogle();
     }
 
+    toast('Successfully logged in!', {
+      icon: '👋',
+      style: {
+        border: "1px solid #68D391",
+        color: "#68D391"
+      }
+    });
+
     history.push('/rooms/new');
   }
 
@@ -29,15 +38,49 @@ export function Home() {
     event.preventDefault();
 
     if (roomCode.trim() === '') {
+      toast('Room code must be filled in!', {
+        icon: 'ℹ️',
+        style: {
+          border: "1px solid #835afd",
+          color: "#835afd"
+        }
+      });
       return;
     }
 
     const roomRef = await database.ref(`rooms/${roomCode}`).get();
 
     if (!roomRef.exists()) {
-      alert("Room does not exists");
+      toast("Room does not exists!", {
+        icon: '😢',
+        style: {
+          border: "1px solid #F56565",
+          color: "#F56565"
+        }
+      });
+
       return;
     }
+
+    if (roomRef.val().endedAt) {
+      toast('Room already closed!', {
+        icon: "⚠️",
+        style: {
+          border: "1px solid#835afd",
+          color: "#835afd"
+        }
+      });
+
+      return;
+    }
+
+    toast('Welcome to the room!', {
+      icon: '👋',
+      style: {
+        border: "1px solid #68D391",
+        color: "#68D391"
+      }
+    });
 
     history.push(`/rooms/${roomCode}`);
   }

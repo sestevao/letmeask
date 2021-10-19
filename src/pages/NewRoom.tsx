@@ -1,11 +1,12 @@
 import { FormEvent, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import toast from "react-hot-toast";
 
+import '../styles/auth.scss';
 
 import illustrationImg from '../assets/images/illustration.svg';
 import logoImg from '../assets/images/logo.svg';
 
-import '../styles/auth.scss';
 
 import { Button } from '../components/Button';
 import { database } from '../services/firebase';
@@ -21,17 +22,41 @@ export function NewRoom() {
     event.preventDefault();
 
     if (newRoom.trim() === '') {
+      toast.error('Please enter a valid room code!', {
+        style: {
+          border: "1px solid #F56565",
+          color: "#F56565"
+        }
+      });
       return;
     }
 
     const roomRef = database.ref('rooms');
-    
+
     const firebaseRoom = await roomRef.push({
       title: newRoom,
       authorId: user?.id,
     });
 
-    history.push(`/rooms/${firebaseRoom.key}`);
+    if (!firebaseRoom) {
+      toast.error("Failed to create room!", {
+        style: {
+          border: "1px solid #F56565",
+          color: "#F56565"
+        }
+      });
+      return;
+    }
+
+    toast('Congratulations. The room was opened!', {
+      icon: '👋',
+      style: {
+        border: "1px solid #68D391",
+        color: "#68D391"
+      }
+    });
+
+    history.push(`/admin/rooms/${firebaseRoom.key}`);
   }
 
   return (

@@ -1,6 +1,8 @@
-.question {
+import styled from "styled-components";
+
+export const QuestionDiv = styled.div`
   background: #fefefe;
-  border-radius: 8px;
+  border-radius: 0 8px 0 8px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
   padding: 24px;
 
@@ -39,6 +41,7 @@
         width: 32px;
         height: 32px;
         border-radius: 50%;
+        border: 2px solid #835afd;
       }
 
       span {
@@ -79,4 +82,19 @@
       }
     }
   }
-}
+`;
+
+export const UserInfo = styled.div`
+  display: flex;
+  align-items: center;
+  img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+  }
+  span {
+    margin-left: 8px;
+    color: #000;
+    font-size: 14px;
+  }
+`;

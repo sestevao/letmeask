@@ -1,4 +1,6 @@
-#page-auth {
+import styled from "styled-components";
+
+export const PageAuth = styled.div`
   display: flex;
   align-items: stretch;
   height: 100vh;
@@ -6,7 +8,6 @@
   aside {
     flex: 7;
 
-    //background-color: #835afd;
     background: rgb(72, 91, 255);
     background: linear-gradient(
       142deg,
@@ -54,7 +55,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 320px;
+    max-width: 340px;
     align-items: stretch;
     text-align: center;
 
@@ -68,16 +69,23 @@
     }
 
     form {
-      input {
-        height: 50px;
-        border-radius: 8px;
-        padding: 0 16px;
-        background: #fff;
-        border: 1px solid #a8a8b3;
-      }
+      .inputGroup {
+        display: flex;
+        align-items: center;
+        margin: 20px 0;
+        padding: 0;
 
-      button {
-        margin-top: 16px;
+        input {
+          height: 50px;
+          border-radius: 0;
+          padding: 0 16px;
+          background: #fff;
+          border: 1px solid #a8a8b3;
+        }
+
+        button {
+          border-radius: 0;
+        }
       }
 
       button,
@@ -97,25 +105,47 @@
     }
   }
 
+  .user-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+
+    img {
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      border: 3px solid #835afd;
+    }
+
+    h2 {
+      margin: 40px 0;
+
+      span {
+        color: #835afd;
+      }
+    }
+  }
+
   .createRoom {
     margin-top: 64px;
     height: 50px;
-    border-radius: 8px;
+    border-radius: 0 8px 0 8px;
     font-weight: 500;
-    background-color: #ea4335;
-    color: #fff;
+    border: 1px solid #ea4335;
+    color: #ea4335;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
     cursor: pointer;
-    border: 0;
 
-    transition: filter 0.2s;
+    /* transition: filter 0.2s; */
+    transition: transform 0.35s ease-in-out;
 
     img {
-      margin-right: 8px;
+      margin-right: 10px;
     }
 
     &:hover {
@@ -147,4 +177,24 @@
       margin-left: 16px;
     }
   }
-}
+
+  @media screen and (max-width: 720px) {
+    flex-direction: column-reverse;
+    margin: 0;
+
+    aside {
+      align-items: center;
+      text-align: center;
+      height: 100%;
+      padding: 0;
+
+      > img {
+        width: 100px;
+      }
+    }
+
+    main {
+      flex: 7;
+    }
+  }
+`;

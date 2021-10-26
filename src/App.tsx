@@ -1,28 +1,41 @@
 import { Toaster } from "react-hot-toast";
+import { ThemeProvider } from 'styled-components';
 
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Routes } from './routes';
 
-import { AuthContextProvider } from './context/AuthContext';
-
-import { AdminRoom } from './pages/AdminRoom';
-import { NewRoom } from "./pages/NewRoom";
-import { Home } from "./pages/Home";
-import { Room } from "./pages/Room";
+import { GlobalStyle } from './styles/global';
+import { lightTheme, darkTheme } from "./styles/theme";
 
 function App() {
   return (
-    <BrowserRouter>
-      <AuthContextProvider>
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/rooms/new" component={NewRoom} />
-          <Route path="/rooms/:id" component={Room} />
+    <ThemeProvider theme={lightTheme}>
+      <Routes />
 
-          <Route path="/admin/rooms/:id" component={AdminRoom} />
-        </Switch>
-      </AuthContextProvider>
-      <Toaster position="top-right" />
-    </BrowserRouter>
+      <GlobalStyle />
+
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          success: {
+            style: {
+              border: "1px solid #68D391",
+              color: "#68D391"
+            }
+          },
+          error: {
+            style: {
+              border: "1px solid #F56565",
+              color: "#F56565"
+            }
+          },
+          style: {
+            margin: "0",
+            border: "1px solid#835afd",
+            color: "#835afd"
+          },
+        }}
+      />
+    </ThemeProvider>
   );
 }
 

@@ -1,8 +1,5 @@
-import { FormEvent, useState } from 'react';
 import { useHistory, useParams } from 'react-router';
 import toast from "react-hot-toast";
-
-import './../styles/room.scss';
 
 import logoImg from '../assets/images/logo.svg';
 import deleteImg from '../assets/images/delete.svg';
@@ -16,6 +13,8 @@ import { RoomCode } from '../components/RoomCode';
 // import { useAuth } from '../hooks/useAuth';
 import { useRoom } from '../hooks/useRoom';
 import { database } from '../services/firebase';
+
+import { PageRoom } from '../styles/room';
 
 type RoomParams = {
   id: string;
@@ -33,14 +32,9 @@ export function AdminRoom() {
       endedAt: new Date(),
     });
 
-    toast.success("Room has been closed!", {
-      style: {
-        border: "1px solid #68D391",
-        color: "#68D391",
-      }
-    });
+    toast.success("Room has been closed!");
 
-    history.push('/')
+    history.push('/');
   }
 
   async function handleDeleteQuestion(questionId: string) {
@@ -62,7 +56,7 @@ export function AdminRoom() {
   }
 
   return (
-    <div id="page-room">
+    <PageRoom>
       <header>
         <div className="content">
           <img src={logoImg} alt="Letmeask" />
@@ -110,6 +104,6 @@ export function AdminRoom() {
           })}
         </div>
       </main>
-    </div>
+    </PageRoom>
   )
 }

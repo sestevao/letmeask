@@ -7,7 +7,7 @@
 
 **Letmeask** is a platform built to let you gather questions from your viewers during your stream and let them vote for which are the best questions for you to answer.
 
-**Demo**: https://
+**Demo**: https://letmeask-b3a32.web.app/
 
 Application built on the React JS track from Next Level Week NLW#06 from @rocketseat during June 20-24, 2021.
 
@@ -32,11 +32,14 @@ Application built on the React JS track from Next Level Week NLW#06 from @rocket
 - [Node.js](https://nodejs.org/en/docs/guides/getting-started-guide/)
 - [Firebase](https://firebase.google.com/)
 - [TypeScript](https://www.typescriptlang.org/)
-- [Styled-components](https://styled-components.com/docs/basics#installation)
-- [Styled-react-modal](https://github.com/AlexanderRichey/styled-react-modal)
 - [react-router-dom](https://reactrouter.com/web/guides/quick-start)
 - [Sass](https://sass-lang.com/documentation)
 - [React hooks](https://reactjs.org/docs/hooks-intro.html)
+
+#### Added after
+
+- [Styled-components](https://styled-components.com/docs/basics#installation)
+- [Styled-react-modal](https://github.com/AlexanderRichey/styled-react-modal)
 
 ## ✅ Getting started
 
@@ -56,7 +59,7 @@ The app will be available for access on your browser at http://localhost:3000
 
 #### 📁 Config .ENV
 
-added .env.example in the project, remember to add the environment variables as per the example
+added `.env.example` in the project, remember to add the environment variables as per the example
 
 ```
 #FIREBASE
@@ -75,14 +78,15 @@ You can view the project layout through this [link](https://www.figma.com/file/u
 
 ## Additional functionalities
 
+- [ ] Add styled-components
 - [ ] Dark theme
-- [ ] Page not found/Not Found
+- [x] Page not found/Not Found
 - [ ] Route to display all rooms
 - [ ] Count of total questions, likes and answered questions
-- [ ] Direct/redirect to admin route after creating room
+- [x] Direct/redirect to admin route after creating room
 - [x] Create a Toast component from scratch to use at different times
 - [ ] Display a closed room, but without allowing the creation of questions and like
-- [ ] Allow user to log out from the admin page and when viewing an open room
+- [x] Allow user to log out from the admin page and when viewing an open room
 - [ ] Allowing to order questions by the amount of likes on the room page
 - [ ] And other small improvements
 

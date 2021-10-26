@@ -3,8 +3,7 @@ import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import toast from "react-hot-toast";
 
-import '../styles/auth.scss';
-import './../styles/room.scss';
+import { PageRoom } from '../styles/room';
 
 import logoImg from '../assets/images/logo.svg';
 
@@ -15,14 +14,13 @@ import { Question } from '../components/Question';
 import { useAuth } from '../hooks/useAuth';
 import { useRoom } from '../hooks/useRoom';
 import { database } from '../services/firebase';
-import { getAuth, signOut } from "firebase/auth";
 
 type RoomParams = {
   id: string;
 }
 
 export function Room() {
-  const { user, signInWithGoogle } = useAuth();
+  const { user, signInWithGoogle, logOutWithGoogle } = useAuth();
   const params = useParams<RoomParams>();
   const roomId = params.id;
   const [newQuestion, setNewQuestion] = useState('');
@@ -55,23 +53,8 @@ export function Room() {
     setNewQuestion('');
   }
 
-  function handleSignOut() {
-    const auth = getAuth();
-    signOut(auth).then(() => {
-      toast.success('Logout successfully!', {
-        style: {
-          border: "1px solid #68D391",
-          color: "#68D391"
-        }
-      });
-    }).catch((error) => {
-      toast.error('Failed logout!', {
-        style: {
-          border: "1px solid #F56565",
-          color: "#F56565"
-        }
-      });
-    });
+  async function handleSignOut() {
+    await logOutWithGoogle();
   }
 
   async function handleSignIn() {
@@ -79,12 +62,7 @@ export function Room() {
       await signInWithGoogle();
     }
 
-    toast.success('Successfully logged in!', {
-      style: {
-        border: "1px solid #68D391",
-        color: "#68D391"
-      }
-    });
+    toast.success('Successfully logged in!');
   }
 
   async function handleLikeQuestion(questionId: string, likeId: string | undefined) {
@@ -98,7 +76,7 @@ export function Room() {
   }
 
   return (
-    <div id="page-room">
+    <PageRoom>
       <header>
         <div className="content">
           <Link to="/">
@@ -133,6 +111,7 @@ export function Room() {
                 <button onClick={handleSignOut}>
                   <img src={user.avatar} alt={user.name} />
                   <span>{user.name}</span>
+                  <span>{user.email}</span>
                 </button>
               </div>
             ) : (
@@ -153,6 +132,7 @@ export function Room() {
                 isAnswered={question.isAnswered}
                 isHighlighted={question.isHighlighted}
               >
+
                 {!question.isAnswered && (
                   <button
                     className={`like-button ${question.likeId ? 'liked' : ''}`}
@@ -172,6 +152,6 @@ export function Room() {
           })}
         </div>
       </main>
-    </div>
+    </PageRoom>
   )
 }

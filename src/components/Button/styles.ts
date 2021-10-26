@@ -1,6 +1,8 @@
-.button {
+import styled from "styled-components";
+
+export const ButtonStyled = styled.button`
   height: 50px;
-  border-radius: 8px;
+  border-radius: 0 8px 0 8px;
   font-weight: 500;
   background-color: #835afd;
   color: #fff;
@@ -33,4 +35,4 @@
     opacity: 0.6;
     cursor: not-allowed;
   }
-}
+`;

@@ -2,15 +2,14 @@ import { FormEvent, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import toast from "react-hot-toast";
 
-import '../styles/auth.scss';
+import { PageAuth } from '../styles/auth';
 
 import illustrationImg from '../assets/images/illustration.svg';
 import logoImg from '../assets/images/logo.svg';
 
-
 import { Button } from '../components/Button';
-import { database } from '../services/firebase';
 
+import { database } from '../services/firebase';
 import { useAuth } from '../hooks/useAuth';
 
 export function NewRoom() {
@@ -22,12 +21,7 @@ export function NewRoom() {
     event.preventDefault();
 
     if (newRoom.trim() === '') {
-      toast.error('Please enter a valid room code!', {
-        style: {
-          border: "1px solid #F56565",
-          color: "#F56565"
-        }
-      });
+      toast.error('Please enter a valid room code!');
       return;
     }
 
@@ -39,28 +33,16 @@ export function NewRoom() {
     });
 
     if (!firebaseRoom) {
-      toast.error("Failed to create room!", {
-        style: {
-          border: "1px solid #F56565",
-          color: "#F56565"
-        }
-      });
+      toast.error("Failed to create room!");
       return;
     }
 
-    toast('Congratulations. The room was opened!', {
-      icon: '👋',
-      style: {
-        border: "1px solid #68D391",
-        color: "#68D391"
-      }
-    });
-
+    toast('Congratulations. The room was opened!', { icon: '👋' });
     history.push(`/admin/rooms/${firebaseRoom.key}`);
   }
 
   return (
-    <div id="page-auth">
+    <PageAuth>
       <aside>
         <img src={illustrationImg} alt="illustration symbolizing questions and answers" />
 
@@ -73,7 +55,10 @@ export function NewRoom() {
         <div className="main-content">
           <img src={logoImg} alt="Letmeask" />
 
-          <h2>Create a new Room</h2>
+          <div className="user-info">
+            <img src={user?.avatar} alt={user?.name} />
+            <h2>Hi <span>{user?.name}</span>, create a new Room</h2>
+          </div>
 
           <form onSubmit={handleCreateRoom}>
             <input
@@ -89,6 +74,6 @@ export function NewRoom() {
           <p>Do you want to join an existing room? <Link to="/">click here</Link></p>
         </div>
       </main>
-    </div>
+    </PageAuth>
   )
 }

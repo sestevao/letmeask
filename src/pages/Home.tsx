@@ -2,16 +2,16 @@ import { useState, FormEvent } from 'react';
 import { useHistory } from 'react-router-dom';
 import toast from "react-hot-toast";
 
-import '../styles/auth.scss';
+import { PageAuth } from '../styles/auth';
 
 import illustrationImg from '../assets/images/illustration.svg';
-import logoImg from '../assets/images/logo.svg';
 import googleIconImg from '../assets/images/google-icon.svg';
+import logoImg from '../assets/images/logo.svg';
 
 import { Button } from '../components/Button';
 
-import { useAuth } from '../hooks/useAuth';
 import { database } from '../services/firebase';
+import { useAuth } from '../hooks/useAuth';
 
 export function Home() {
   const history = useHistory();
@@ -23,14 +23,7 @@ export function Home() {
       await signInWithGoogle();
     }
 
-    toast('Successfully logged in!', {
-      icon: '👋',
-      style: {
-        border: "1px solid #68D391",
-        color: "#68D391"
-      }
-    });
-
+    toast.success('Successfully logged in!', { icon: '👋' });
     history.push('/rooms/new');
   }
 
@@ -38,55 +31,32 @@ export function Home() {
     event.preventDefault();
 
     if (roomCode.trim() === '') {
-      toast('Room code must be filled in!', {
-        icon: 'ℹ️',
-        style: {
-          border: "1px solid #835afd",
-          color: "#835afd"
-        }
-      });
+      toast.error('Room code must be filled in!', { icon: 'ℹ️' });
       return;
     }
 
     const roomRef = await database.ref(`rooms/${roomCode}`).get();
 
     if (!roomRef.exists()) {
-      toast("Room does not exists!", {
-        icon: '😢',
-        style: {
-          border: "1px solid #F56565",
-          color: "#F56565"
-        }
-      });
-
+      toast.error("Room does not exists!", { icon: '😢' });
       return;
     }
 
     if (roomRef.val().endedAt) {
-      toast('Room already closed!', {
-        icon: "⚠️",
-        style: {
-          border: "1px solid#835afd",
-          color: "#835afd"
-        }
-      });
-
+      toast('Room already closed!', { icon: "⚠️" });
       return;
     }
 
-    toast('Welcome to the room!', {
-      icon: '👋',
-      style: {
-        border: "1px solid #68D391",
-        color: "#68D391"
-      }
-    });
+    toast('Welcome to the room!', { icon: '👋' });
+    history.push(`/admin/rooms/${roomCode}`);
+  }
 
-    history.push(`/rooms/${roomCode}`);
+  function handleListAllRooms() {
+    history.push('/rooms/allRooms');
   }
 
   return (
-    <div id="page-auth">
+    <PageAuth>
       <aside>
         <img src={illustrationImg} alt="illustration symbolizing questions and answers" />
 
@@ -101,7 +71,7 @@ export function Home() {
 
           <button className="createRoom" onClick={handleCreateRoom}>
             <img src={googleIconImg} alt="google logo" />
-            Create your room with google
+            Create your room with Google
           </button>
 
           <div className="separator">
@@ -109,17 +79,21 @@ export function Home() {
           </div>
 
           <form onSubmit={handleJoinRoom}>
-            <input
-              type="text"
-              placeholder="Enter the room code"
-              onChange={event => setRoomCode(event.target.value)}
-              value={roomCode}
-            />
+            <div className="inputGroup">
+              <input
+                type="text"
+                placeholder="Enter the room code"
+                onChange={event => setRoomCode(event.target.value)}
+                value={roomCode}
+              />
 
-            <Button type="submit">Enter the room</Button>
+              <Button type="submit">Enter the room</Button>
+            </div>
           </form>
+
+          <Button onClick={handleListAllRooms}>List all rooms</Button>
         </div>
       </main>
-    </div>
+    </PageAuth>
   )
 }

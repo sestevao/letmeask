@@ -79,19 +79,19 @@ export function Home() {
           </div>
 
           <form onSubmit={handleJoinRoom}>
-            <div className="inputGroup">
-              <input
-                type="text"
-                placeholder="Enter the room code"
-                onChange={event => setRoomCode(event.target.value)}
-                value={roomCode}
-              />
+            <input
+              type="text"
+              placeholder="Enter the room code"
+              value={roomCode}
+              onChange={event => setRoomCode(event.target.value)}
+            />
 
-              <Button type="submit">Enter the room</Button>
-            </div>
+            <Button type="submit">Enter the room</Button>
           </form>
 
-          <Button onClick={handleListAllRooms}>List all rooms</Button>
+          <br />
+
+          <button onClick={handleListAllRooms}>List all rooms</button>
         </div>
       </main>
     </PageAuth>

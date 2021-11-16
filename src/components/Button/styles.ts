@@ -25,9 +25,20 @@ export const ButtonStyled = styled.button`
     background-color: #fff;
     border: 1px solid #835afd;
     color: #835afd;
+
+    transition: background 0.3s;
+
+    &:hover {
+      background: #835afd;
+      color: #fff;
+    }
   }
 
-  &:not(:disabled)hover {
+  div {
+    margin-right: 1rem;
+  }
+
+  &:not(:disabled):hover {
     filter: brightness(0.9);
   }
 

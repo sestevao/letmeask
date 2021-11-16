@@ -8,14 +8,8 @@ export const PageAuth = styled.div`
   aside {
     flex: 7;
 
-    background: rgb(72, 91, 255);
-    background: linear-gradient(
-      142deg,
-      rgba(72, 91, 255, 1) 0%,
-      rgba(255, 89, 248, 1) 100%
-    );
-
-    color: #fff;
+    background: var(--purple);
+    color: var(--white);
 
     display: flex;
     flex-direction: column;
@@ -35,9 +29,9 @@ export const PageAuth = styled.div`
 
     p {
       font-size: 24px;
+      color: #f8f8f8;
       line-height: 32px;
       margin-top: 16px;
-      color: #f8f8f8;
     }
   }
 
@@ -69,23 +63,16 @@ export const PageAuth = styled.div`
     }
 
     form {
-      .inputGroup {
-        display: flex;
-        align-items: center;
-        margin: 20px 0;
-        padding: 0;
+      input {
+        height: 50px;
+        border-radius: 0;
+        padding: 0 16px;
+        background: var(--background);
+        border: 1px solid var(--gray-medium);
+      }
 
-        input {
-          height: 50px;
-          border-radius: 0;
-          padding: 0 16px;
-          background: #fff;
-          border: 1px solid #a8a8b3;
-        }
-
-        button {
-          border-radius: 0;
-        }
+      button {
+        border-radius: 0;
       }
 
       button,
@@ -96,11 +83,11 @@ export const PageAuth = styled.div`
 
     p {
       font-size: 14px;
-      color: #737380;
+      color: var(--gray-dark);
       margin-top: 16px;
 
       a {
-        color: #e559f9;
+        color: var(--pink-dark);
       }
     }
   }

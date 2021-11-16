@@ -1,14 +1,15 @@
 import { Toaster } from "react-hot-toast";
-import { ThemeProvider } from 'styled-components';
+// import { ThemeProvider } from 'styled-components';
 
 import { Routes } from './routes';
 
 import { GlobalStyle } from './styles/global';
-import { lightTheme, darkTheme } from "./styles/theme";
+// import { lightTheme } from "./styles/theme";
 
 function App() {
   return (
-    <ThemeProvider theme={lightTheme}>
+    <>
+      {/* <ThemeProvider theme={lightTheme}> */}
       <Routes />
 
       <GlobalStyle />
@@ -35,7 +36,8 @@ function App() {
           },
         }}
       />
-    </ThemeProvider>
+      {/* </ThemeProvider> */}
+    </>
   );
 }
 

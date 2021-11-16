@@ -78,7 +78,7 @@ You can view the project layout through this [link](https://www.figma.com/file/u
 
 ## Additional functionalities
 
-- [ ] Add styled-components
+- [x] Add styled-components
 - [ ] Dark theme
 - [x] Page not found/Not Found
 - [ ] Route to display all rooms

@@ -29,7 +29,7 @@ export const PageAuth = styled.div`
 
     p {
       font-size: 24px;
-      color: #f8f8f8;
+      color: var(--background);
       line-height: 32px;
       margin-top: 16px;
     }
@@ -102,14 +102,14 @@ export const PageAuth = styled.div`
       width: 62px;
       height: 62px;
       border-radius: 50%;
-      border: 3px solid #835afd;
+      border: 3px solid var(--purple2);
     }
 
     h2 {
       margin: 40px 0;
 
       span {
-        color: #835afd;
+        color: var(--purple2);
       }
     }
   }
@@ -117,10 +117,11 @@ export const PageAuth = styled.div`
   .createRoom {
     margin-top: 64px;
     height: 50px;
-    border-radius: 0 8px 0 8px;
     font-weight: 500;
-    border: 1px solid #ea4335;
-    color: #ea4335;
+
+    border: 1px solid var(--redButon);
+    border-radius: 8px;
+    color: var(--redButton);
 
     display: flex;
     align-items: center;
@@ -128,7 +129,6 @@ export const PageAuth = styled.div`
 
     cursor: pointer;
 
-    /* transition: filter 0.2s; */
     transition: transform 0.35s ease-in-out;
 
     img {
@@ -142,7 +142,7 @@ export const PageAuth = styled.div`
 
   .separator {
     font-size: 14px;
-    color: #a8a8b3;
+    color: var(--gray-medium);
 
     margin: 32px 0;
     display: flex;
@@ -152,7 +152,7 @@ export const PageAuth = styled.div`
       content: "";
       flex: 1;
       height: 1px;
-      background: #a8a8b3;
+      background: var(--gray-medium);
       margin-right: 16px;
     }
 
@@ -160,7 +160,7 @@ export const PageAuth = styled.div`
       content: "";
       flex: 1;
       height: 1px;
-      background: #a8a8b3;
+      background: var(--gray-medium);
       margin-left: 16px;
     }
   }

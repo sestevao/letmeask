@@ -2,10 +2,10 @@ import styled from "styled-components";
 
 export const ButtonStyled = styled.button`
   height: 50px;
-  border-radius: 0 8px 0 8px;
+  border-radius: 8px;
   font-weight: 500;
-  background-color: #835afd;
-  color: #fff;
+  background-color: var(--purple2);
+  color: var(--white2);
   padding: 0 32px;
 
   display: flex;
@@ -22,15 +22,15 @@ export const ButtonStyled = styled.button`
   }
 
   &.outlined {
-    background-color: #fff;
-    border: 1px solid #835afd;
-    color: #835afd;
+    background-color: var(--white2);
+    border: 1px solid var(--purple2);
+    color: var(--purple2);
 
     transition: background 0.3s;
 
     &:hover {
-      background: #835afd;
-      color: #fff;
+      background: var(--purple2);
+      color: var(--white2);
     }
   }
 

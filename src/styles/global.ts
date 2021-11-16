@@ -24,6 +24,11 @@ export const GlobalStyle = createGlobalStyle`
     --purple: #6f4bd8;
     --red: #d73754;
     --blue: #485bff;
+
+    --purple2: #835afd;
+    --white2: #ffffff;
+
+    --redButton:#ea4335;
   }
 
   .dark-mode:root {

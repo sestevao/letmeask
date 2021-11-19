@@ -38,8 +38,8 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
 
         setUser({
           id: uid,
-          name: displayName /* || 'Unnamed' */,
-          avatar: photoURL /* || 'https://www.gravatar.com/avatar/0?d=mp&f=y' */,
+          name: displayName || 'Unnamed',
+          avatar: photoURL || 'https://www.gravatar.com/avatar/0?d=mp&f=y',
           email: email
         });
       }
@@ -63,8 +63,8 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
 
       setUser({
         id: uid,
-        name: displayName /* || 'Unnamed' */,
-        avatar: photoURL /*|| 'https://www.gravatar.com/avatar/0?d=mp&f=y' */,
+        name: displayName || 'Unnamed',
+        avatar: photoURL|| 'https://www.gravatar.com/avatar/0?d=mp&f=y',
         email: email
       });
     }

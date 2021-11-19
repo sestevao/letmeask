@@ -1,130 +1,140 @@
 import styled from "styled-components";
 
 export const PageRoom = styled.div`
-  header {
-    padding: 24px;
-    border-bottom: 1px solid #e2e2e2;
+  background: var(--bg-body);
+  padding-bottom: 20px;
+  min-height: 100vh;
 
-    .content {
-      max-width: 1120px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+  .content {
+    max-width: min(1280px, 70%);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
 
-      > img {
-        max-height: 45px;
-      }
+    @media screen and (max-width: 50rem) {
+      flex-direction: column-reverse;
+    }
 
-      > div {
+    main {
+      flex: 2;
+
+      .room-title {
         display: flex;
-        gap: 16px;
+        align-items: center;
+        margin: 32px 0 24px;
 
-        button {
-          height: 40px;
+        > h1 {
+          font: 24px "Poppins", sans-serif;
+          color: var(--txt-primary);
+        }
+
+        span {
+          margin-left: 16px;
+          background: var(--pink-medium);
+          border-radius: 9999px;
+          padding: 8px 16px;
+          color: #fff;
+          font-weight: 500;
+          font-size: 14px;
         }
       }
-    }
-  }
 
-  main {
-    max-width: 800px;
-    margin: 0 auto;
+      form {
+        textarea {
+          width: 100%;
+          min-height: 130px;
+          resize: vertical;
+          padding: 16px;
 
-    .room-title {
-      margin: 32px 0 24px;
-      display: flex;
-      align-items: center;
+          border-radius: 0 8px;
+          background: var(--bg-input);
+          color: var(--txt-input);
+          box-shadow: 0 2px 12px var(--shadow);
+          border: 0;
+        }
 
-      h1 {
-        font: 24px "Poppins", sans-serif;
-        color: #29292e;
-      }
-
-      span {
-        margin-left: 16px;
-        background: #e559f9;
-        border-radius: 9999px;
-        padding: 8px 16px;
-        color: #fff;
-        font-weight: 500;
-        font-size: 14px;
-      }
-    }
-
-    form {
-      textarea {
-        width: 100%;
-        border: 0;
-        padding: 16px;
-        border-radius: 0 8px 0 8px;
-        background: #fefefe;
-        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
-        resize: vertical;
-        min-height: 130px;
-      }
-
-      .form-footer {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 16px;
-
-        .user-info {
+        .form-footer {
           display: flex;
+          justify-content: space-between;
           align-items: center;
+          margin-top: 16px;
 
-          > button {
-            background-color: transparent;
-            border: none;
+          .user {
             display: flex;
-            align-items: center;
-            cursor: pointer;
+            align-items: flex-start;
+            gap: 16px;
+            color: var(--txt-details);
 
-            img {
+            > img {
               width: 32px;
               height: 32px;
               border-radius: 50%;
-              border: 3px solid #835afd;
+              border: 3px solid var(--purple-light);
             }
 
-            span {
-              margin-left: 8px;
-              color: #29292e;
-              font-weight: 500;
+            .user-info {
+              display: flex;
+              flex-direction: column;
+
+              & > span {
+                font-weight: 400;
+                font-size: 14px;
+              }
+            }
+
+            > button {
+              background: transparent;
+              border: none;
               font-size: 14px;
+              color: var(--purple-light);
+              border-bottom: 1px solid var(--purple-light);
+            }
+          }
+
+          > span {
+            font-size: 14px;
+            color: #737380;
+            font-weight: 500;
+
+            button {
+              background: transparent;
+              border: 0;
+              color: #835afd;
+              text-decoration: underline;
+              font-size: 14px;
+              font-weight: 500;
+              cursor: pointer;
             }
           }
         }
+      }
 
-        > span {
-          font-size: 14px;
-          color: #737380;
-          font-weight: 500;
+      .question-list {
+        margin-top: 32px;
 
-          button {
-            background: transparent;
-            border: 0;
-            color: #835afd;
-            text-decoration: underline;
-            font-size: 14px;
-            font-weight: 500;
-            cursor: pointer;
-          }
+        > button {
+          box-shadow: none;
         }
       }
     }
 
-    .question-list {
-      margin-top: 32px;
-
-      > button {
-        box-shadow: none;
-      }
+    aside {
+      margin: 32px 0;
     }
   }
 `;
 
-export const PageNotFoundContainer = styled.div`
-  
+export const NoQuestions = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  color: var(--txt-primary);
+  padding: 50px 0;
+
+  h3 {
+    font-size: 25px;
+  }
 `;

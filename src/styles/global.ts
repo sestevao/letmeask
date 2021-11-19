@@ -1,54 +1,81 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
-  *, *::after, *::before  {
+  *, 
+  *::after, 
+  *::before  {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
 
   :root {
-    --background: #f8f8f8;
-    --box-background: #f4f0ff;
-
-    --gray-dark: #737380;
-    --gray-medium: #a8a8b3;
-    --gray-light: #cecece;
-
-    --pink-dark: #e559f9;
-    --pink-medium: #ff59f8;
-    --pink-light: #d67ee2;
+    --bg-body: #f8f8f8;
+    --bg-modal: #f8f8f8;
+    --bg-input: #ffffff;
+    
+    --txt-primary: #29292e;
+    --txt-details: #737380;
+    --txt-input: #835afd;
 
     --black: #29292e;
-    --white: #fefefe;
-    --purple: #6f4bd8;
-    --red: #d73754;
-    --blue: #485bff;
+    --shadow: rgb(0 0 0 / 0.2);
 
-    --purple2: #835afd;
-    --white2: #ffffff;
+    --purple-white: #e3d8ff;
+    --purple-light: #835AFD;
+    --purple-dark: #835a99;
 
-    --redButton:#ea4335;
+    --google: #EA4335;
+    --danger: #E73F5D;
+
+    --gray-dark: #737380;
+    --gray-medium: #A8A8B3;
+    --gray-light: #DBDCDD;
+
+    --white-medium: #F8F8F8;
+    --white-light: #FEFEFE;
+
+    --pink-medium: #E559F9;
+    --pink-light: #D67EE2;
   }
 
-  .dark-mode:root {
-    --background: #121212;
-    --box-background: #1a1330;
-
-    --purple: #482b9e;  
-    --white: #191B1C;
-    --red: #ac273f;
-
-    --gray-dark: #2C2C2C;
-    --gray-medium: #323232;
-    --gray-light: #373737;
-  }
-
-  body {
-    background: var(---background);
-    color: var(--black);
+  .dark-mode {
+    --bg-body: #0d0131;
+    --bg-modal: #29292E;
+    --bg-input: #2d2d2d;
     
+    --txt-primary: #FEFEFE;
+    --txt-details: #F8F8F8;
+    --txt-input: #FEFEFE;
+
+    --black: #29292E;
+    --shadow: rgba(255,255,255,0.1);
+
+    --purple-white: #e3d8ff;
+    --purple-light: #835AFD;
+    --purple-dark: #e3d8ff;
+
+    --google: #EA4335;
+    --danger: #E73F5D;
+
+    --gray-dark: #737380;
+    --gray-medium: #A8A8B3;
+    --gray-light: #DBDCDD;
+
+    --white-medium: #F8F8F8;
+    --white-light: #FEFEFE;
+
+    --pink-medium: #E559F9;
+    --pink-light: #D67EE2;
+  }
+
+  html{
+    scroll-behavior: smooth;
+  }
+
+  body { 
     transition: all 0.25s linear;
+    background: var(---bg-body);
   }
 
   body,
@@ -58,8 +85,7 @@ export const GlobalStyle = createGlobalStyle`
     font: 400 16px "Roboto", sans-serif;
   }
 
-  button:hover {
-    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
-      0 17px 50px 0 rgba(0, 0, 0, 0.19);
-  }
+  /* button:hover {
+    box-shadow: 0 12px 16px 0 var(--shadow), 0 17px 50px 0 var(--shadow);
+  }  */
 `;

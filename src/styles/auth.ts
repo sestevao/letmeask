@@ -8,8 +8,8 @@ export const PageAuth = styled.div`
   aside {
     flex: 7;
 
-    background: var(--purple);
-    color: var(--white);
+    background: var(--purple-light);
+    color: var(--white-medium);
 
     display: flex;
     flex-direction: column;
@@ -17,7 +17,7 @@ export const PageAuth = styled.div`
 
     padding: 120px 80px;
 
-    img {
+    & > img {
       max-width: 320px;
     }
 
@@ -29,9 +29,13 @@ export const PageAuth = styled.div`
 
     p {
       font-size: 24px;
-      color: var(--background);
+      color: var(--white);
       line-height: 32px;
       margin-top: 16px;
+    }
+
+    @media (max-width: 55rem) {
+      display: none;
     }
   }
 
@@ -43,17 +47,26 @@ export const PageAuth = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+
+    background: var(--bg-body);
+
+    @media (max-width: 55rem) {
+      padding-top: 8rem;
+      padding-bottom: 4rem;
+    }
   }
 
   .main-content {
     display: flex;
     flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+
     width: 100%;
     max-width: 340px;
-    align-items: stretch;
     text-align: center;
 
-    > img {
+    & > img {
       align-self: center;
     }
 
@@ -65,14 +78,18 @@ export const PageAuth = styled.div`
     form {
       input {
         height: 50px;
-        border-radius: 0;
+        border-radius: 0 8px;
         padding: 0 16px;
-        background: var(--background);
+        background: var(--bg-input);
         border: 1px solid var(--gray-medium);
+        color: var(--txt-primary);
       }
 
       button {
-        border-radius: 0;
+        background: var(--purple-light);
+        color: var(--white-light);
+        border-radius: 0 8px;
+        margin-top: 16px;
       }
 
       button,
@@ -83,33 +100,11 @@ export const PageAuth = styled.div`
 
     p {
       font-size: 14px;
-      color: var(--gray-dark);
+      color: var(--txt-details);
       margin-top: 16px;
 
       a {
-        color: var(--pink-dark);
-      }
-    }
-  }
-
-  .user-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 16px;
-
-    img {
-      width: 62px;
-      height: 62px;
-      border-radius: 50%;
-      border: 3px solid var(--purple2);
-    }
-
-    h2 {
-      margin: 40px 0;
-
-      span {
-        color: var(--purple2);
+        color: var(--pink-medium);
       }
     }
   }
@@ -118,10 +113,11 @@ export const PageAuth = styled.div`
     margin-top: 64px;
     height: 50px;
     font-weight: 500;
+    color: var(--white-medium);
 
-    border: 1px solid var(--redButon);
-    border-radius: 8px;
-    color: var(--redButton);
+    background-color: var(--google);
+    border-radius: 0 8px;
+    border: none;
 
     display: flex;
     align-items: center;
@@ -137,6 +133,29 @@ export const PageAuth = styled.div`
 
     &:hover {
       filter: brightness(0.9);
+    }
+  }
+
+  .user-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+    color: var(--txt-primary);
+
+    img {
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      border: 3px solid var(--purple-light);
+    }
+
+    h2 {
+      margin: 40px 0;
+
+      span {
+        color: var(--purple-light);
+      }
     }
   }
 

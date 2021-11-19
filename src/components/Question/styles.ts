@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const QuestionDiv = styled.div`
-  background: #fefefe;
-  border-radius: 0 8px 0 8px;
+  background: var(--bg-input);
+  border-radius: 0 8px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
   padding: 24px;
 
@@ -11,20 +11,20 @@ export const QuestionDiv = styled.div`
   }
 
   &.highlighted {
-    background: #f4f0ff;
-    border: 1px solid #835afd;
+    background: var(--purple-white);
+    border: 1px solid var(--purple-light);
 
     footer .user-info span {
-      color: #29292e;
+      color: var(--txt-primary);
     }
   }
 
   &.answered {
-    background: #dbdcdd;
+    background: var(--white-medium);
   }
 
   p {
-    color: #29292e;
+    color: var(--txt-primary);
   }
 
   footer {
@@ -33,31 +33,13 @@ export const QuestionDiv = styled.div`
     align-items: center;
     margin-top: 24px;
 
-    .user-info {
-      display: flex;
-      align-items: center;
-
-      img {
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        border: 2px solid #835afd;
-      }
-
-      span {
-        margin-left: 8px;
-        color: #737380;
-        font-size: 14px;
-      }
-    }
-
     > div {
       display: flex;
       gap: 16px;
     }
 
     button {
-      border: 0;
+      border: none;
       background: transparent;
       cursor: pointer;
       transition: filter 0.2s;
@@ -65,14 +47,14 @@ export const QuestionDiv = styled.div`
       &.like-button {
         display: flex;
         align-items: flex-end;
-        color: #737380;
+        color: var(--gray-dark);
         gap: 8px;
 
         &.liked {
-          color: #835afd;
+          color: var(--purple-light);
 
           svg path {
-            stroke: #835afd;
+            stroke: var(--purple-light);
           }
         }
       }
@@ -87,14 +69,16 @@ export const QuestionDiv = styled.div`
 export const UserInfo = styled.div`
   display: flex;
   align-items: center;
+
   img {
     width: 32px;
     height: 32px;
     border-radius: 50%;
+    border: 2px solid var(--purple-light);
   }
+
   span {
-    margin-left: 8px;
-    color: #000;
+    color: var(--txt-details);
     font-size: 14px;
   }
 `;

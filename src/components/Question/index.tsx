@@ -25,12 +25,10 @@ export function Question({ content, author, children, isAnswered = false, isHigh
       <p>{`${content.substring(0, 170)}...`}</p>
 
       <footer>
-        {/* <div className="user-info"> */}
         <UserInfo>
           <img src={author.avatar} alt={author.name} />
           <span>{author.name}</span>
         </UserInfo>
-        {/* </div> */}
 
         <div>
           {children}

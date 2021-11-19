@@ -3,14 +3,16 @@ import { ButtonHTMLAttributes } from 'react';
 import { ButtonStyled } from './styles';
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  isOutlined?: boolean
+  btnType: "fill" | "outline",
 };
 
-export function Button({ isOutlined = false, ...props }: ButtonProps) {
+export function Button(props: ButtonProps) {
   return (
     <ButtonStyled
-      className={`${isOutlined ? 'outlined' : ''}`}
       {...props}
-    />
+      btnType={props.btnType}
+    >
+      {props.children}
+    </ButtonStyled>
   )
 }

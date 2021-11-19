@@ -41,6 +41,10 @@ export function NewRoom() {
     history.push(`/admin/rooms/${firebaseRoom.key}`);
   }
 
+  function handleAllRooms() {
+    history.push("/rooms");
+  }
+
   return (
     <PageAuth>
       <aside>
@@ -68,8 +72,11 @@ export function NewRoom() {
               value={newRoom}
             />
 
-            <Button type="submit">Create the room</Button>
+            <Button btnType="fill" type="submit">Create the room</Button>
           </form>
+
+          <br />
+          <Button btnType="outline" onClick={handleAllRooms}>Check all rooms</Button>
 
           <p>Do you want to join an existing room? <Link to="/">click here</Link></p>
         </div>

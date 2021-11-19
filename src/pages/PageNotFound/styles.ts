@@ -23,7 +23,7 @@ export const NotFoundContainer = styled.div`
       margin: 15px;
       font-weight: bold;
       margin: 5% 0 5% 5%;
-      color: #835afd;
+      color: var(--purple-light);
     }
 
     h2 {

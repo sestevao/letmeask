@@ -79,16 +79,16 @@ You can view the project layout through this [link](https://www.figma.com/file/u
 ## Additional functionalities
 
 - [x] Add styled-components
-- [ ] Dark theme
+- [x] Dark theme
 - [x] Page not found/Not Found
-- [ ] Route to display all rooms
-- [ ] Count of total questions, likes and answered questions
+- [x] Count of total questions, likes and answered questions
 - [x] Direct/redirect to admin route after creating room
 - [x] Create a Toast component from scratch to use at different times
-- [ ] Display a closed room, but without allowing the creation of questions and like
 - [x] Allow user to log out from the admin page and when viewing an open room
+- [x] Add Page Not Found
+- [ ] Route to display all rooms
 - [ ] Allowing to order questions by the amount of likes on the room page
-- [ ] And other small improvements
+- [ ] Display a closed room, but without allowing the creation of questions and like
 
 ## 📝 License
 

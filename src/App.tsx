@@ -1,15 +1,12 @@
 import { Toaster } from "react-hot-toast";
-// import { ThemeProvider } from 'styled-components';
+import { ToggleButton } from "./components/ToggleButton";
 
 import { Routes } from './routes';
-
 import { GlobalStyle } from './styles/global';
-// import { lightTheme } from "./styles/theme";
 
 function App() {
   return (
     <>
-      {/* <ThemeProvider theme={lightTheme}> */}
       <Routes />
 
       <GlobalStyle />
@@ -36,7 +33,8 @@ function App() {
           },
         }}
       />
-      {/* </ThemeProvider> */}
+
+      <ToggleButton />
     </>
   );
 }

@@ -26,7 +26,7 @@ export function PageNotFound() {
           How you got here is a mystery. But you can click the button below
           to go back to the homepage.</p>
 
-        <Button onClick={handleGoHome}>Go to Home</Button>
+        <Button btnType="fill" onClick={handleGoHome}>Go to Home</Button>
       </main>
     </NotFoundContainer >
   )

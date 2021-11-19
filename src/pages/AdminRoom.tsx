@@ -1,16 +1,16 @@
 import { useHistory, useParams } from 'react-router';
 import toast from "react-hot-toast";
 
-import logoImg from '../assets/images/logo.svg';
 import deleteImg from '../assets/images/delete.svg';
 import checkImg from '../assets/images/check.svg';
 import answerImg from '../assets/images/answer.svg';
 
-import { Button } from '../components/Button';
 import { Question } from '../components/Question';
 import { RoomCode } from '../components/RoomCode';
+import { Header } from '../components/Header';
+import { Button } from '../components/Button';
+import { Card } from '../components/Card';
 
-// import { useAuth } from '../hooks/useAuth';
 import { useRoom } from '../hooks/useRoom';
 import { database } from '../services/firebase';
 
@@ -57,53 +57,73 @@ export function AdminRoom() {
 
   return (
     <PageRoom>
-      <header>
-        <div className="content">
-          <img src={logoImg} alt="Letmeask" />
+      <Header>
+        <RoomCode code={roomId} />
+        <Button btnType="outline" onClick={handleEndRoom}>Close room</Button>
+      </Header>
 
-          <div>
-            <RoomCode code={roomId} />
-            <Button isOutlined onClick={handleEndRoom}>Close room</Button>
+      <div className="content">
+
+        <main>
+          <div className="room-title">
+            <h1>{title}</h1>
+            <span>{questions.length > 0 && questions.length} question(s)</span>
           </div>
-        </div>
-      </header>
 
-      <main>
-        <div className="room-title">
-          <h1>{title}</h1>
-          <span>{questions.length > 0 && questions.length} question(s)</span>
-        </div>
+          <div className="question-list">
+            {questions.map(question => {
+              return (
+                <Question
+                  key={question.id}
+                  content={question.content}
+                  author={question.author}
+                  isAnswered={question.isAnswered}
+                  isHighlighted={question.isHighlighted}
+                >
+                  {!question.isAnswered && (
+                    <>
+                      <button type="button" onClick={() => handleCheckQuestionAnswered(question.id)}>
+                        <img src={checkImg} alt="Check question" />
+                      </button>
 
-        <div className="question-list">
-          {questions.map(question => {
-            return (
-              <Question
-                key={question.id}
-                content={question.content}
-                author={question.author}
-                isAnswered={question.isAnswered}
-                isHighlighted={question.isHighlighted}
-              >
-                {!question.isAnswered && (
-                  <>
-                    <button type="button" onClick={() => handleCheckQuestionAnswered(question.id)}>
-                      <img src={checkImg} alt="Check question" />
-                    </button>
+                      <button type="button" onClick={() => handleHighlightedQuestion(question.id)}>
+                        <img src={answerImg} alt="Answer question" />
+                      </button>
+                    </>
+                  )}
 
-                    <button type="button" onClick={() => handleHighlightedQuestion(question.id)}>
-                      <img src={answerImg} alt="Answer question" />
-                    </button>
-                  </>
-                )}
+                  <button type="button" onClick={() => handleDeleteQuestion(question.id)}>
+                    <img src={deleteImg} alt="Delete question" />
+                  </button>
+                </Question>
+              )
+            })}
+          </div>
+        </main>
 
-                <button type="button" onClick={() => handleDeleteQuestion(question.id)}>
-                  <img src={deleteImg} alt="Delete question" />
-                </button>
-              </Question>
-            )
-          })}
-        </div>
-      </main>
+        <aside>
+          <Card
+            btnStyle="primary"
+            text="Questions"
+            value={questions?.length || 0}
+          />
+
+          <Card
+            btnStyle="fill"
+            text="Likes"
+            value={questions?.reduce((ac, { likeCount }) => ac + likeCount, 0) || 0}
+          />
+
+          <Card
+            btnStyle="outline"
+            text="Answered"
+            value={questions?.reduce((ac, { isAnswered }) => {
+              if (isAnswered) return ac + 1;
+              return ac;
+            }, 0) || 0}
+          />
+        </aside>
+      </div>
     </PageRoom>
   )
 }

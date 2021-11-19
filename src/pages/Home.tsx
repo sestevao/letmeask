@@ -1,5 +1,5 @@
 import { useState, FormEvent } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import toast from "react-hot-toast";
 
 import { PageAuth } from '../styles/auth';
@@ -51,10 +51,6 @@ export function Home() {
     history.push(`/admin/rooms/${roomCode}`);
   }
 
-  function handleListAllRooms() {
-    history.push('/rooms/allRooms');
-  }
-
   return (
     <PageAuth>
       <aside>
@@ -86,12 +82,12 @@ export function Home() {
               onChange={event => setRoomCode(event.target.value)}
             />
 
-            <Button type="submit">Enter the room</Button>
+            <Button btnType="fill" type="submit">Enter the room</Button>
           </form>
 
           <br />
 
-          <button onClick={handleListAllRooms}>List all rooms</button>
+          <p>Check all our rooms <Link to="/rooms">here!</Link></p>
         </div>
       </main>
     </PageAuth>

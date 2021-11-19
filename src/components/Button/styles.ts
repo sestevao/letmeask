@@ -1,12 +1,19 @@
 import styled from "styled-components";
 
-export const ButtonStyled = styled.button`
+type ButtonProps = {
+  btnType: "fill" | "outline";
+};
+
+export const ButtonStyled = styled.button<ButtonProps>`
   height: 50px;
-  border-radius: 8px;
   font-weight: 500;
-  background-color: var(--purple2);
-  color: var(--white2);
   padding: 0 32px;
+
+  background: ${({ btnType }) =>
+    btnType === "fill" ? "var(--purple-light)" : "var(--purple-white)"};
+
+  color: ${({ btnType }) =>
+    btnType === "fill" ? "var(--txt-primary)" : "var(--purple-light)"};
 
   display: flex;
   align-items: center;
@@ -14,6 +21,7 @@ export const ButtonStyled = styled.button`
 
   cursor: pointer;
   border: 0;
+  border-radius: 0 8px;
 
   transition: filter 0.2s;
 
@@ -22,15 +30,14 @@ export const ButtonStyled = styled.button`
   }
 
   &.outlined {
-    background-color: var(--white2);
-    border: 1px solid var(--purple2);
-    color: var(--purple2);
+    border: 1px solid var(--purple-light);
+    color: var(--white-light);
 
     transition: background 0.3s;
 
     &:hover {
-      background: var(--purple2);
-      color: var(--white2);
+      background: var(--purple-light);
+      color: var(--white-light);
     }
   }
 

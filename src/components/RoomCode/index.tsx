@@ -1,11 +1,11 @@
 import toast from "react-hot-toast";
 
 import copyImg from '../../assets/images/copy.svg';
-
 import { RoomCodeButton } from './styles';
 
 type RoomCodeProps = {
-  code: string;
+  code: string,
+  text?: boolean,
 }
 
 export function RoomCode(props: RoomCodeProps) {
@@ -17,11 +17,13 @@ export function RoomCode(props: RoomCodeProps) {
 
   return (
     <RoomCodeButton className="room-code" onClick={copyRoomCodeToClipboard}>
-      <div>
+      <div className="icon">
         <img src={copyImg} alt="Copy room code" />
       </div>
 
-      <span>Room #{props.code}</span>
+      <div className="text">
+        {props.text ? `Copie to clipboard` : <span>Room #{props.code}</span>}
+      </div>
     </RoomCodeButton>
   )
 }

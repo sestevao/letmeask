@@ -1,5 +1,13 @@
 <div align="center">
   <img alt="Letmeask" src=".github/logo.svg" width="160px">
+  
+  <p align="center">
+    <img alt="Rocketseat" src="https://img.shields.io/badge/Created%20by%3A-Rocketseat-%236D5CCD" />
+    <img alt="setevao" src="https://img.shields.io/badge/Developed%20by%3A-sestevao-%23DD3B3F" />
+    <img alt="License MIT" src="https://img.shields.io/badge/License-MIT-%2398C611" />
+    <img alt="Typescript" src="https://img.shields.io/badge/Main%20language-Typescript-%232F74C0" /> <br />
+  </p> 
+  
   <pre>💭 Are you a content creator? Then <b>Letmeask</b> is perfect for you! <br>You can create Q&A rooms with the audience that follows you. 💭</pre>
 </div>
 
@@ -7,7 +15,7 @@
 
 **Letmeask** is a platform built to let you gather questions from your viewers during your stream and let them vote for which are the best questions for you to answer.
 
-**Demo**: https://letmeask-b3a32.web.app/
+**Demo**: https://letmeask-l08quz7z9-sestevao.vercel.app/
 
 Application built on the React JS track from Next Level Week NLW#06 from @rocketseat during June 20-24, 2021.
 

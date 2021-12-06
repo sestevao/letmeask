@@ -66,7 +66,8 @@ export const PageAuth = styled.div`
     max-width: 340px;
     text-align: center;
 
-    & > img {
+    & > img,
+    & > svg {
       align-self: center;
     }
 

@@ -11,7 +11,8 @@ export const HeaderContainer = styled.div`
     justify-content: space-between;
     align-items: center;
 
-    > img {
+    > img,
+    > svg {
       max-height: 45px;
     }
 

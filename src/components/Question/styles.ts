@@ -20,7 +20,7 @@ export const QuestionDiv = styled.div`
   }
 
   &.answered {
-    background: var(--white-medium);
+    background: var(--gray-medium);
   }
 
   p {

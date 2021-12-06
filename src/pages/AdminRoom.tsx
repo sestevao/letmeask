@@ -83,17 +83,17 @@ export function AdminRoom() {
                   {!question.isAnswered && (
                     <>
                       <button type="button" onClick={() => handleCheckQuestionAnswered(question.id)}>
-                        <img src={checkImg} alt="Check question" />
+                        <img src={checkImg} alt="Check question" title="Check question" />
                       </button>
 
                       <button type="button" onClick={() => handleHighlightedQuestion(question.id)}>
-                        <img src={answerImg} alt="Answer question" />
+                        <img src={answerImg} alt="Answer question" title="Answer question" />
                       </button>
                     </>
                   )}
 
                   <button type="button" onClick={() => handleDeleteQuestion(question.id)}>
-                    <img src={deleteImg} alt="Delete question" />
+                    <img src={deleteImg} alt="Delete question" title="Delete question" />
                   </button>
                 </Question>
               )

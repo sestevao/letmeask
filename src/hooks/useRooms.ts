@@ -7,34 +7,32 @@ type FirebaseRooms = Record<
   {
     authorId: string;
     title: string;
-    enedAt: string;
+    roomIsOpen: boolean;
   }
 >;
 
 type Rooms = {
   id: string;
   name: string;
-  endedAt?: string;
+  roomIsOpen?: boolean;
 };
 
 export function useRooms() {
   const [rooms, setRooms] = useState<Rooms[]>([]);
 
   useEffect(() => {
-    const roomRef = database.ref(`rooms/`);
+    const roomRef = database.ref(`rooms`);
 
     roomRef.on("value", (room) => {
       const databaseRooms = room.val();
-      const firebaseRooms: FirebaseRooms = databaseRooms ?? {};
-      const parsedRooms = Object.entries(firebaseRooms).map(
-        ([key, value]: any) => {
-          return {
-            id: key,
-            name: value.title,
-            enedAt: value?.endedAt,
-          };
-        }
-      );
+      const rooms: FirebaseRooms = databaseRooms.rooms ?? {};
+      const parsedRooms = Object.entries(rooms).map(([key, value]: any) => {
+        return {
+          id: key,
+          name: value.title,
+          roomIsOpen: value?.roomIsOpen,
+        };
+      });
 
       setRooms(parsedRooms);
     });

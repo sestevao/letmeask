@@ -33,6 +33,21 @@ export const RoomsContainer = styled.div`
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
         gap: 20px;
+
+        .empty-list {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin-top: 30px;
+
+          h1 {
+            color: var(--txt-primary);
+          }
+          p {
+            color: var(--txt-primary);
+          }
+        }
       }
     }
 

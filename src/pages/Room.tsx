@@ -10,11 +10,12 @@ import { RoomCode } from '../components/RoomCode';
 import { Question } from '../components/Question';
 import { Button } from '../components/Button';
 import { Header } from '../components/Header';
+import { Card } from '../components/Card';
 
 import { useAuth } from '../hooks/useAuth';
 import { useRoom } from '../hooks/useRoom';
+
 import { database } from '../services/firebase';
-import { Card } from '../components/Card';
 
 type RoomParams = {
   id: string;
@@ -138,6 +139,7 @@ export function Room() {
                       className={`like-button ${question.likeId ? 'liked' : ''}`}
                       type="button"
                       aria-label="Mark as liked"
+                      title="Mark as liked"
                       onClick={() => handleLikeQuestion(question.id, question.likeId)}
                     >
                       {question.likeCount > 0 && <span>{question.likeCount}</span>}

@@ -1,4 +1,4 @@
-import { Toaster } from "react-hot-toast";
+import { Toaster, ToastBar } from "react-hot-toast";
 import { ToggleButton } from "./components/ToggleButton";
 
 import { Routes } from './routes';
@@ -29,7 +29,8 @@ function App() {
           style: {
             margin: "0",
             border: "1px solid#835afd",
-            color: "#835afd"
+            background: "var(--bg-modal)",
+            color: "#835afd",
           },
         }}
       />

@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
+
 import { RoomCode } from '../RoomCode';
+
 import { CardContainer } from './styles';
 
 type QuestionProps = {
   title: string,
-  endedAt: string | undefined,
+  roomIsOpen: boolean | undefined,
   code: string,
 }
 
@@ -16,11 +18,11 @@ export function RoomCard(props: QuestionProps) {
       </Link>
 
       <div className="footer">
-        {!props.endedAt && (
+        {!props.roomIsOpen && (
           <RoomCode code={props.code} />
         )}
 
-        {!!props.endedAt && (
+        {!!props.roomIsOpen && (
           // <Badge>Finished</Badge>
           <p>Finished</p>
         )}

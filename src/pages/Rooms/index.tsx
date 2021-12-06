@@ -1,6 +1,7 @@
 import { useHistory } from 'react-router';
 
 import { RoomsContainer } from './styles';
+import emptyImg from '../../assets/images/empty-questions.svg';
 
 import { useRooms } from '../../hooks/useRooms';
 
@@ -14,7 +15,8 @@ export function Rooms() {
   const history = useHistory();
   const { rooms } = useRooms();
 
-  const openRooms = rooms.filter(room => !room.endedAt);
+  const openRooms = rooms.filter(room => !room.roomIsOpen);
+
 
   return (
     <RoomsContainer>
@@ -31,16 +33,26 @@ export function Rooms() {
           </div>
 
           <div className="rooms">
-            {rooms.map(room => {
-              return (
-                <RoomCard
-                  key={room.id}
-                  title={room.name}
-                  endedAt={room.endedAt}
-                  code={room.id}
-                />
-              )
-            })}
+            {rooms.length !== 0 ?
+              rooms.map(room => {
+                return (
+                  <RoomCard
+                    key={room.id}
+                    title={room.name}
+                    roomIsOpen={room.roomIsOpen}
+                    code={room.id}
+                  />
+                )
+              })
+              :
+              (<div className="empty-list">
+                <img src={emptyImg} alt="Empty Room" />
+
+                <h1>We don't have rooms at the moment.</h1>
+
+                <p>Send this room code to your friends and start answering questions!</p>
+              </div>)
+            }
           </div>
         </main>
 

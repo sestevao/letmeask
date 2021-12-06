@@ -15,7 +15,7 @@
 
 **Letmeask** is a platform built to let you gather questions from your viewers during your stream and let them vote for which are the best questions for you to answer.
 
-**Demo**: https://letmeask-l08quz7z9-sestevao.vercel.app/
+**Demo**: https://
 
 Application built on the React JS track from Next Level Week NLW#06 from @rocketseat during June 20-24, 2021.
 
